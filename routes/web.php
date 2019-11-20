@@ -16,4 +16,9 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'admin'], function() {
     Route::get('book/create', 'Admin\BookController@add');
+    Route::post('book/create', 'Admin\BookController@create'); # 追記
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
