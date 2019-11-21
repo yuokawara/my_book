@@ -31,14 +31,32 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2" for="page1">重要ページ①</label>
-                    <div class="col-md-10">
+                    <div class="col-md-2">
                         <input type="number" class="form-control" name="page1" value="{{ old('page1') }}">
+                    </div>
+                    <label class="col-md-2" for="word1">重要文①</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="word1" value="{{ old('word1') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2" for="word1">重要な一文①</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="word1" value="{{ old('word1') }}">
+                    <label class="col-md-2" for="page2">重要ページ②</label>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="page2" value="{{ old('page2') }}">
+                    </div>
+                    <label class="col-md-2" for="word2">重要文②</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="word2" value="{{ old('word2') }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="page1">重要ページ③</label>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="page3" value="{{ old('page3') }}">
+                    </div>
+                    <label class="col-md-2" for="word3">重要文③</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="word3" value="{{ old('word3') }}">
                     </div>
                 </div>
                 <div class="form-group row">
