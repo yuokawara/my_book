@@ -3,7 +3,7 @@ body {
   background-position: center;
   background: -webkit-gradient(linear, left top, left bottom, from(#05FBFF), to(#1E00FF)) fixed;
   background: linear-gradient(#05FBFF, #1E00FF) fixed;
-  color: #fff;
+  color: #efefefe3;
 }
 
 .navbar-laravel {
