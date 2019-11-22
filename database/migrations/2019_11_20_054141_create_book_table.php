@@ -20,10 +20,10 @@ class CreateBookTable extends Migration
             $table->string('body');  // 本の感想を保存するカラム
             $table->integer('page1'); //重要なページ1
             $table->string('word1'); //重要な一文1
-            $table->integer('page2'); //重要なページ2
-            $table->string('word2'); //重要な一文2
-            $table->integer('page3'); //重要なページ3
-            $table->string('word3'); //重要な一文3
+            $table->integer('page2')->nullable(); //重要なページ2
+            $table->string('word2')->nullable(); //重要な一文2
+            $table->integer('page3')->nullable(); //重要なページ3
+            $table->string('word3')->nullable(); //重要な一文3
             $table->string('important'); //3つから感じた重要な事
             $table->string('plan'); //何を計画するか
             $table->string('action'); //実行する事

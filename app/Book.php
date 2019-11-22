@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    protected $table = 'book';
     protected $guarded = array('id');
 
 
@@ -16,7 +17,6 @@ class Book extends Model
         'word1' => 'required',
         'important' => 'required',
         'plan' => 'required',
-        'body' => 'required',
         'action' => 'required',
     );
 }
