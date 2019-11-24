@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class Book extends Model
 {
@@ -19,4 +20,9 @@ class Book extends Model
         'plan' => 'required',
         'action' => 'required',
     );
+
+    public function bookhistories()
+    {
+        return $this->hasMany(App\History);
+    }
 }

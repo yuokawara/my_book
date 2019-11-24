@@ -58,6 +58,9 @@
                                 <div>
                                     <a href="{{ action('Admin\BookController@edit', ['id' => $book->id]) }}">編集</a>
                                 </div>
+                                <div>
+                                    <a href="{{ action('Admin\BookController@delete', ['id' => $book->id]) }}">削除</a>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

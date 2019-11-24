@@ -15,12 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('book/create', 'Admin\BookController@add')->middleware('auth');
-    Route::post('Book/create', 'Admin\BookController@create')->middleware('auth');
-    Route::get('book', 'Admin\BookController@index')->middleware('auth');
-    Route::get('book/edit', 'Admin\BookController@edit')->middleware('auth'); // 追記
-    Route::post('book/edit', 'Admin\BookController@update')->middleware('auth'); // 追記
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('book/create', 'Admin\BookController@add');
+    Route::post('Book/create', 'Admin\BookController@create');
+    Route::get('book', 'Admin\BookController@index');
+    Route::get('book/edit', 'Admin\BookController@edit'); // 一覧
+    Route::post('book/edit', 'Admin\BookController@update'); // 更新
+    Route::get('book/delete', 'Admin\BookController@delete'); //削除
 });
 
 Auth::routes();
