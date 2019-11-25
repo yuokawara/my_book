@@ -23,6 +23,6 @@ class Book extends Model
 
     public function bookhistories()
     {
-        return $this->hasMany(App\BookHistory);
+        return $this->hasMany('App\BookHistory');
     }
 }

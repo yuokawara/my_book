@@ -84,7 +84,7 @@ class BookController extends Controller
         unset($book_form['remove']);
         $book->fill($book_form)->save();
 
-        // 以下を追記
+        // 追記
         $bookhistory = new BookHistory;
         $bookhistory->book_id = $book->id;
         $bookhistory->edited_at = Carbon::now();
