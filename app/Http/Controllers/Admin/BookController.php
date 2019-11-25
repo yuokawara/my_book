@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Book;
+use App\BookHistory;
 use Carbon\Carbon;
-use App\History;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\New_;
 
@@ -58,6 +58,9 @@ class BookController extends Controller
     public function edit(Request $request)
     {
         $book = Book::find($request->id);
+        if (empty($book)) {
+            abort(404);
+        }
 
         return view('admin.book.edit', ['book_form' => $book]);
     }
@@ -69,24 +72,25 @@ class BookController extends Controller
         $book_form = $request->all();
         if ($request->input('remove')) {
             $book_form['image_path'] = null;
-        } elseif  ($request->file('image')) {
+        } elseif ($request->file('image')) {
             $path = $request->file('image')->store('public/image');
             $book_form['image_path'] = basename($path);
         } else {
             $book_form['image_path'] = $book->image_path;
         }
+
         unset($book_form['_token']);
         unset($book_form['image']);
         unset($book_form['remove']);
         $book->fill($book_form)->save();
 
-        //編集履歴
-        $bookhistories = new History;
-        $bookhistories->book_id = $book->id;
-        $bookhistories->edited_at = Carbon::now();
-        $bookhistories->save();
+        // 以下を追記
+        $bookhistory = new BookHistory;
+        $bookhistory->book_id = $book->id;
+        $bookhistory->edited_at = Carbon::now();
+        $bookhistory->save();
 
-        return redirect('admin/book');
+        return redirect('admin/book/');
     }
 
     public function delete(Request $request)

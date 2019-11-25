@@ -102,8 +102,8 @@
                     <h2>編集履歴</h2>
                     <ul class="list-group">
                         @if ($book_form->bookhistories != NULL)
-                        @foreach ($book_form->bookhistories as $history)
-                        <li class="list-group-item">{{ $history->edited_at }}</li>
+                        @foreach ($book_form->bookhistories as $bookhistory)
+                        <li class="list-group-item">{{ $bookhistory->edited_at }}</li>
                         @endforeach
                         @endif
                     </ul>
