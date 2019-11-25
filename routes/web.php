@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('book/edit', 'Admin\BookController@edit'); // 一覧
     Route::post('book/edit', 'Admin\BookController@update'); // 更新
     Route::get('book/delete', 'Admin\BookController@delete'); //削除
+    Route::get('/', 'BookController@index');
 });
 
 Auth::routes();
