@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BookHistory extends Model
+class Bookhistory extends Model
 {
     protected $guarded = array('id');
 

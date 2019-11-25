@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Book;
-use App\BookHistory;
+use App\Bookhistory;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\New_;
@@ -85,7 +85,7 @@ class BookController extends Controller
         $book->fill($book_form)->save();
 
         // 追記
-        $bookhistory = new BookHistory;
+        $bookhistory = new Bookhistory;
         $bookhistory->book_id = $book->id;
         $bookhistory->edited_at = Carbon::now();
         $bookhistory->save();
