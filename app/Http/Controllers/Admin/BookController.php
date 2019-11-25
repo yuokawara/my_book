@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Book;
 use App\Bookhistory;
 use Carbon\Carbon;
+use Storage; //追加
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\New_;
 
@@ -26,8 +27,8 @@ class BookController extends Controller
 
         // formに画像があれば、保存する
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $book->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/', $form['image'], 'public');
+            $book->image_path = Storage::disk('s3')->url($path);
         } else {
             $book->image_path = null;
         }
@@ -73,8 +74,8 @@ class BookController extends Controller
         if ($request->input('remove')) {
             $book_form['image_path'] = null;
         } elseif ($request->file('image')) {
-            $path = $request->file('image')->store('public/image');
-            $book_form['image_path'] = basename($path);
+            $path = Storage::disk('s3')->putFile('/', $book_form['image'], 'public');
+            $book_form['image_path'] = Storage::disk('s3')->url($path);
         } else {
             $book_form['image_path'] = $book->image_path;
         }
