@@ -69,5 +69,13 @@
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-center">
+        {{ $posts->links() }}
+    </div>
+    <div class="buttons">
+        <a href="{{ action('BookController@index') }}" class="btn btn-block btn-primary">
+            <span class="font">H</span>ome
+        </a>
+    </div>
 </div>
 @endsection

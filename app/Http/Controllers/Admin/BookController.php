@@ -53,6 +53,9 @@ class BookController extends Controller
             // それ以外はすべてのニュースを取得する
             $posts = Book::all();
         }
+
+        // ページネイト用
+        $posts = Book::paginate(5);
         return view('admin.book.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 

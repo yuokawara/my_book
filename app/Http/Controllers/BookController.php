@@ -25,7 +25,8 @@ class BookController extends Controller
         } else {
             $headline = null;
         }
-
+        // ページネイト用
+        $posts = Book::paginate(5);
 
         //View テンプレートに headline、 posts、 cond_title という変数を渡している
         return view('book.index', ['headline' => $headline, 'posts' => $posts, 'cond_title' => $cond_title]);
