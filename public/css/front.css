@@ -111,15 +111,5 @@ body {
     font-size: 2em;
     padding: 0.7rem;
   }
-
-  .display-2 {
-    font-size: 30%;
-  }
-}
-
-@media (max-width: 480px) {
-  h2 {
-    font-size: 30%;
-  }
 }
 

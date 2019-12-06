@@ -130,9 +130,3 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  h2 {
-    font-size: 30%;
-  }
-}
-
