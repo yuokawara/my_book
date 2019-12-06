@@ -113,7 +113,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                <h2>bookstocker</h2>
+                <h3 class="display-2">book<br>stocker</h3>
             </div>
 
             @if (Route::has('register'))
