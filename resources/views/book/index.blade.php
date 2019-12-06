@@ -1,6 +1,33 @@
 @extends('layouts.front')
 
 @section('content')
+<!-- Navigasion -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ action('BookController@index') }}">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ action('Admin\BookController@create') }}">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ action('Admin\BookController@index') }}">Edit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ action('HomeController@index') }}">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- End Navigation -->
 <div class="container">
     <hr color="#c0c0c0">
     @if (!is_null($headline))
