@@ -86,10 +86,6 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
   }
-
-  h2 {
-    font-size: 50%;
-  }
 }
 
 @media (max-width: 576px) {
@@ -123,10 +119,6 @@ body {
   .social a {
     font-size: 2em;
     padding: 0.7rem;
-  }
-
-  .display-2 {
-    font-size: 50%;
   }
 }
 
