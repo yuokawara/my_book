@@ -120,6 +120,9 @@
             <a href="{{ route('register') }}">
                 <p>新規登録をお願いします</p>
             </a>
+            <a href="{{ route('login') }}">
+                <p>ログイン</p>
+            </a>
             @endif
 
             <!-- <div class="links">

@@ -1,14 +1,16 @@
 body {
     background-repeat: no-repeat;
     background-position: center;
-    background: linear-gradient(#05FBFF, #1E00FF) fixed;
+    background: linear-gradient(rgb(5, 113, 255), rgba(0, 119, 255, 0.603)) fixed;
 
     color: #efefefe3;
 }
 
+
 .navbar-laravel {
     background-color: #000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    display: none;
 }
 
 .navbar-brand {
@@ -37,7 +39,7 @@ body {
 }
 
 .login-body {
-    background-color: rgba(0, 0, 0, 0.25);
+    // background-color: rgba(0, 0, 0, 0.25);
 }
 
 .buttons {
@@ -47,4 +49,7 @@ body {
 
 .font {
     color: #f00;
+}
+.card {
+    text-align: center;
 }
