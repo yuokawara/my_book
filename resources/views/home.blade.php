@@ -19,6 +19,8 @@
             </div>
         </div>
     </div>
-
+    <div class="row justify-content-center mt-4">
+        <a href="{{ action('Admin\BookController@create') }}" class="btn btn-primary">Start</a>
+    </div>
 </div>
 @endsection
