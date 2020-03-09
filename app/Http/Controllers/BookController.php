@@ -15,7 +15,7 @@ class BookController extends Controller
         $cond_title = $request->cond_title;
         // $cond_title が空白でない場合は、記事を検索して取得する
         if ($cond_title != '') {
-            $posts = Book::where('title', $cond_title) . orderBy('updated_at', 'desc')->get();
+            $posts = Book::where('title', $cond_title)->get();
         } else {
             $posts = Book::all()->sortByDesc('updated_at');
         }

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Book;
 use App\Bookhistory;
 use Carbon\Carbon;
-use Storage; //追加
+use Storage; //追加 aws
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\New_;
 
@@ -18,6 +18,7 @@ class BookController extends Controller
         return view('admin.book.create');
     }
 
+    // create action
     public function create(Request $request)
     {
         // Varidationを行う
@@ -27,8 +28,13 @@ class BookController extends Controller
 
         // formに画像があれば、保存する
         if (isset($form['image'])) {
-            $path = Storage::disk('s3')->putFile('/', $form['image'], 'public');
-            $book->image_path = Storage::disk('s3')->url($path);
+            // aws用
+            // $path = Storage::disk('s3')->putFile('/', $form['image'], 'public');
+            // $book->image_path = Storage::disk('s3')->url($path);
+
+            // Local用 2020.03.09
+            $path = $request->file('image')->store('public/image');
+            $book->image_path = basename($path);
         } else {
             $book->image_path = null;
         }
@@ -42,7 +48,7 @@ class BookController extends Controller
         return redirect('admin/book/create');
     }
 
-    // 以下を追記
+    // 検索用　若干修正が必要
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
@@ -59,6 +65,7 @@ class BookController extends Controller
         return view('admin.book.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 
+    // edit
     public function edit(Request $request)
     {
         $book = Book::find($request->id);
@@ -69,6 +76,7 @@ class BookController extends Controller
         return view('admin.book.edit', ['book_form' => $book]);
     }
 
+    // update action
     public function update(Request $request)
     {
         $this->validate($request, Book::$rules);
@@ -77,8 +85,13 @@ class BookController extends Controller
         if ($request->input('remove')) {
             $book_form['image_path'] = null;
         } elseif ($request->file('image')) {
-            $path = Storage::disk('s3')->putFile('/', $book_form['image'], 'public');
-            $book_form['image_path'] = Storage::disk('s3')->url($path);
+            // aws用
+            // $path = Storage::disk('s3')->putFile('/', $book_form['image'], 'public');
+            // $book_form['image_path'] = Storage::disk('s3')->url($path);
+
+            // Local用　2020.03.09
+            $path = $request->file('image')->store('public/image');
+            $book->image_path = basename($path);
         } else {
             $book_form['image_path'] = $book->image_path;
         }
